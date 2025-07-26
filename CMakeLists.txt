@@ -1,8 +1,4 @@
 cmake_minimum_required(VERSION 3.20.0)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
-project(mic_es7210)
-
-target_sources(app PRIVATE
-  src/main.c
-  drivers/es7210/es7210.c
-)
+project(my_i2c_driver)
+target_sources(app PRIVATE src/main.c)
