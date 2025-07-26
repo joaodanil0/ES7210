@@ -1,0 +1,5 @@
+config ES7210
+    bool "Enable ES7210 codec"
+    default y
+    help
+      Enable driver for ES7210 audio codec.

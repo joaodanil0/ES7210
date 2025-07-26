@@ -1,0 +1,25 @@
+&i2c0 {
+    es7210@40 {
+        compatible = "everest,es7210";
+        reg = <0x40>;
+        label = "ES7210";
+        reset-gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
+    };
+};
+
+&pinctrl {
+    i2s0_default: i2s0_default {
+        group1 {
+            pinmux = <ESP32S3_IO0_I2S0_SCLK>,   /* BCLK */
+                     <ESP32S3_IO1_I2S0_WS>,     /* LRCLK */
+                     <ESP32S3_IO2_I2S0_DIN>;    /* DOUT do codec → DIN do ESP32S3 */
+            bias-disable;
+        };
+    };
+};
+
+&i2s0 {
+    status = "okay";
+    pinctrl-0 = <&i2s0_default>;
+    pinctrl-names = "default";
+};
